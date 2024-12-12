@@ -10,27 +10,7 @@ from .utils import fetch_popular_movies, fetch_movie_details, fetch_popular_seri
 # Vista Home para plantillas
 def home(request):
     """Vista principal que organiza los carruseles de películas y series."""
-    try:
-        # Películas populares
-        top_rated_movies = fetch_movies_from_tmdb('movie/top_rated')['results'][:20]
-        # Estrenos
-        upcoming_movies = fetch_movies_from_tmdb('movie/upcoming')['results'][:20]
-        # Series populares
-        popular_series = fetch_movies_from_tmdb('tv/popular')['results'][:20]
-        # Series mejor calificadas
-        top_rated_series = fetch_movies_from_tmdb('tv/top_rated')['results'][:20]
-
-        context = {
-            'top_rated_movies': top_rated_movies,
-            'upcoming_movies': upcoming_movies,
-            'popular_series': popular_series,
-            'top_rated_series': top_rated_series,
-        }
-
-        return render(request, 'streaming/home.html', context)
-
-    except Exception as e:
-        return render(request, 'streaming/home.html', {'error': str(e)})
+    return render(request, 'streaming/home.html')
     
 def movie_search(request):
     """Vista para buscar películas."""
