@@ -10,7 +10,12 @@ from .utils import fetch_popular_movies, fetch_movie_details, fetch_popular_seri
 # Vista Home para plantillas
 def home(request):
     """Vista principal que organiza los carruseles de películas y series."""
-    return render(request, 'streaming/home.html')
+    try:
+        popular_movies = fetch_popular_movies()['results'][:20]  # Obtiene las primeras 20 películas
+        context = {'movies': popular_movies}
+        return render(request, 'streaming/home.html', context)
+    except Exception as e:
+        return render(request, 'streaming/home.html', {'error': str(e)})
     
 def movie_search(request):
     """Vista para buscar películas."""
