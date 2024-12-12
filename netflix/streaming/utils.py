@@ -45,4 +45,10 @@ def fetch_top_rated_movies(page=1):
     """Obtiene las películas mejor calificadas."""
     return fetch_movies_from_tmdb('movie/top_rated', {'page': page})
 
+def fetch_recommendations(user_id):
+    return fetch_movies_from_tmdb('movie/recommendations', {'user_id': user_id})
+   
+
+
+
 
