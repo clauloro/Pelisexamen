@@ -1,6 +1,5 @@
 {% extends "streaming/base.html" %}
 {% load static %}
-
 {% block title %}
 Series - Claudia's Netflix
 {% endblock %}
@@ -21,30 +20,41 @@ Series - Claudia's Netflix
     </form>
 </div>
 
-<!-- Mostrar solo el carrusel adecuado -->
+<!-- Series por Género -->
 {% if genre_series %}
 <div class="carousel-container">
     <h2 class="section-title">Series por Género</h2>
     <div class="carousel">
         {% for serie in genre_series %}
         <div class="carousel-item">
-            <img src="https://image.tmdb.org/t/p/w500{{ serie.poster_path }}" alt="{{ serie.name }}">
-            <h3>{{ serie.name }}</h3>
-        </div>
+            <a href="{% url 'streaming:series-detail' serie.id %}">
+                <img src="https://image.tmdb.org/t/p/w500{{ serie.poster_path }}" alt="{{ serie.name }}">
+                <h3>{{ serie.name }}</h3>
+            </a>
+        </div>        
         {% endfor %}
     </div>
 </div>
-{% elif popular_series %}
+{% endif %}
+
+<!-- Series Populares -->
+{% if popular_series %}
 <div class="carousel-container">
     <h2 class="section-title">Series Populares</h2>
     <div class="carousel">
         {% for serie in popular_series %}
         <div class="carousel-item">
-            <img src="https://image.tmdb.org/t/p/w500{{ serie.poster_path }}" alt="{{ serie.name }}">
-            <h3>{{ serie.name }}</h3>
+            <a href="{% url 'streaming:series-detail' serie.id %}">
+                <img src="https://image.tmdb.org/t/p/w500{{ serie.poster_path }}" alt="{{ serie.name }}">
+                <h3>{{ serie.name }}</h3>
+            </a>
         </div>
+        
         {% endfor %}
     </div>
 </div>
 {% endif %}
 {% endblock %}
+
+
+

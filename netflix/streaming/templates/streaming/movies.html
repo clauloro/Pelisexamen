@@ -23,48 +23,49 @@ Películas - Claudia's Netflix
 <!-- Carrusel de Películas Mejor Calificadas -->
 <div class="carousel-container">
     <h2 class="section-title">Películas Mejor Valoradas</h2>
-    
     <div class="carousel">
         {% for movie in top_rated_movies %}
         <div class="carousel-item">
-            <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" alt="{{ movie.title }}">
-            <h3>{{ movie.title }}</h3>
+            <a href="{% url 'streaming:movie-details' movie.id %}">
+                <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" alt="{{ movie.title }}">
+                <h3>{{ movie.title }}</h3>
+            </a>
         </div>
         {% endfor %}
     </div>
-    
 </div>
 
 <!-- Carrusel de Películas Próximas -->
 <div class="carousel-container">
     <h2 class="section-title">Próximas Películas</h2>
-    
     <div class="carousel">
         {% for movie in upcoming_movies %}
         <div class="carousel-item">
-            <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" alt="{{ movie.title }}">
-            <h3>{{ movie.title }}</h3>
+            <a href="{% url 'streaming:movie-details' movie.id %}">
+                <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" alt="{{ movie.title }}">
+                <h3>{{ movie.title }}</h3>
+            </a>
         </div>
         {% endfor %}
     </div>
-    
 </div>
 
 <!-- Carrusel de Películas por Género -->
 <div class="carousel-container">
     <h2 class="section-title">Películas por Género</h2>
-    
     <div class="carousel">
         {% for movie in genre_movies %}
         <div class="carousel-item">
-            <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" alt="{{ movie.title }}">
-            <h3>{{ movie.title }}</h3>
+            <a href="{% url 'streaming:movie-details' movie.id %}">
+                <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" alt="{{ movie.title }}">
+                <h3>{{ movie.title }}</h3>
+            </a>
         </div>
         {% endfor %}
     </div>
-    
 </div>
 
 {% endblock %}
+
 
 
