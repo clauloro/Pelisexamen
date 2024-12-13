@@ -2,6 +2,7 @@
 {% load static %}
 {% block title %}Resultados de la búsqueda{% endblock %}
 {% block content %}
+
 <div class="search-results">
     <h1>Resultados para "{{ query }}"</h1>
     <div class="carousel-container">
@@ -19,6 +20,8 @@
     {% endif %}
 </div>
 
+
+
 <nav class="pagination">
     {% if page > 1 %}
     <a href="?q={{ query }}&genre={{ request.GET.genre }}&page={{ page|add:"-1" }}">Anterior</a>
@@ -26,3 +29,4 @@
     <a href="?q={{ query }}&genre={{ request.GET.genre }}&page={{ page|add:"1" }}">Siguiente</a>
 </nav>
 {% endblock %}
+
