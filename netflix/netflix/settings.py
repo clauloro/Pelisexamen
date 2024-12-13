@@ -12,7 +12,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 from decouple import config
+import os
 
+TMDB_API_KEY = os.getenv('TMDB_API_KEY')
 
 TMDB_API_KEY = config('TMDB_API_KEY', default='clave_por_defecto')
 
