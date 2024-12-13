@@ -24,9 +24,14 @@
 
 <nav class="pagination">
     {% if page > 1 %}
-    <a href="?q={{ query }}&genre={{ request.GET.genre }}&page={{ page|add:"-1" }}">Anterior</a>
+    <a href="?q={{ query }}&page={{ page|add:"-1" }}">Anterior</a>
     {% endif %}
-    <a href="?q={{ query }}&genre={{ request.GET.genre }}&page={{ page|add:"1" }}">Siguiente</a>
+    <a href="?q={{ query }}&page={{ page|add:"1" }}">Siguiente</a>
 </nav>
+
+
+
+
 {% endblock %}
+
 

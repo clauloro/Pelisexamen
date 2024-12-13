@@ -10,9 +10,17 @@ body {
 header {
     background-color: #000; /* Fondo negro */
     color: #e50914; /* Rojo característico de Netflix */
-    padding: 1rem 0;
-    text-align: center;
-    margin-bottom: 1rem;
+    padding: 1rem;
+    display: flex; /* Flexbox para organizar los elementos */
+    align-items: center; /* Centra los elementos verticalmente */
+    justify-content: space-between; /* Espacia los elementos */
+}
+
+header h1 {
+    font-size: 24px; /* Tamaño del texto de "Nacho's Netflix" */
+    margin: 0; /* Quita margen extra */
+    color: #e50914; /* Rojo */
+    font-weight: bold;
 }
 
 header nav ul {
@@ -28,13 +36,14 @@ header nav ul li {
 }
 
 header nav ul li a {
-    color: #e5e5e5; /* Gris claro */
+    color: #e50914; /* Rojo por defecto */
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s ease; /* Transición suave */
 }
 
 header nav ul li a:hover {
-    color: #e50914; /* Rojo */
+    color: #fff; /* Blanco al pasar el ratón */
 }
 
 /* Carrusel */
@@ -157,26 +166,6 @@ nav {
     padding: 1rem;
 }
 
-nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    padding: 0;
-}
-
-nav ul li {
-    margin: 0 1rem;
-}
-
-nav ul li a {
-    color: #e5e5e5;
-    text-decoration: none;
-}
-
-nav ul li a:hover {
-    color: #e50914;
-}
-
 .account-container {
     padding: 20px;
     max-width: 800px;
@@ -240,108 +229,52 @@ nav ul li a:hover {
     background-color: #ffffff;
 }
 
-.search-results h1 {
-    font-size: 24px;
-    color: #ffffff;
-    margin-bottom: 20px;
-}
-
-.search-results .carousel {
-    display: flex;
-    gap: 15px;
-    overflow-x: auto;
-    padding: 10px 0;
-}
-
-.search-results .carousel-item {
-    min-width: 200px;
-    max-width: 200px;
-    text-align: center;
-    background-color: #222;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s;
-}
-
-.search-results .carousel-item img {
-    width: 100%;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-.search-results .carousel-item:hover {
-    transform: scale(1.1);
-}
-
 /* Estilo de la barra de búsqueda */
-.search-bar {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-    padding: 5px;
-    background-color: #222;
-    border-radius: 20px;
+.search-container {
+    position: relative;
 }
 
-.search-bar input {
-    border: none;
-    background-color: transparent;
-    color: #e5e5e5;
-    padding: 5px 10px;
-    outline: none;
-    width: 200px;
-}
-
-.search-bar input::placeholder {
-    color: #b3b3b3;
-}
-
-.search-bar button {
-    border: none;
+.search-icon {
+    font-size: 20px;
     background: none;
-    color: #e50914;
-    font-size: 16px;
+    border: none;
     cursor: pointer;
-    padding: 5px;
-    margin-left: 5px;
+    color: #e5e5e5;
+    margin-left: 10px;
 }
 
-.search-bar button:hover {
-    color: #fff;
-}
-
-/* Resultados de búsqueda */
-.search-results h2 {
+.search-icon:hover {
     color: #e50914;
-    text-align: center;
-    margin-bottom: 20px;
 }
 
-.search-results .carousel {
+/* Paginación */
+.pagination {
     display: flex;
-    gap: 15px;
-    overflow-x: auto;
-    padding: 10px 0;
+    justify-content: space-between; /* Posiciona los enlaces en extremos opuestos */
+    align-items: center;
+    margin: 20px 0;
+    padding: 0 20px;
 }
 
-.search-results .carousel-item {
-    min-width: 200px;
-    max-width: 200px;
-    text-align: center;
-    background-color: #222;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s;
-}
-
-.search-results .carousel-item img {
-    width: 100%;
+.pagination-link {
+    text-decoration: none;
+    font-size: 18px;
+    color: #e5e5e5; /* Gris claro */
+    padding: 10px 20px;
+    background-color: #222; /* Fondo oscuro */
     border-radius: 5px;
-    margin-bottom: 10px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.search-results .carousel-item:hover {
-    transform: scale(1.05);
+.pagination-link:hover {
+    background-color: #e50914; /* Rojo */
+    color: #fff; /* Blanco */
+}
+
+.pagination-link.left {
+    text-align: left;
+}
+
+.pagination-link.right {
+    text-align: right;
 }
