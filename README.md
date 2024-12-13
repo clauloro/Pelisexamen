@@ -2,6 +2,7 @@
 
 Usuario: clauloro
 
-Repositorio: [Enlace al repositorio]((https://github.com/clauloro/Pelisexamen.git))
+Repositorio: [https://github.com/clauloro/Pelisexamen.git](https://github.com/clauloro/Pelisexamen.git)
+
 
 
